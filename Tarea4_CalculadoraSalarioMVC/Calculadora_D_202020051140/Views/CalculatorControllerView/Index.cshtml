@@ -1,0 +1,39 @@
+﻿@model Calculadora_D_202020051140.Models.CalculatorControlViewModel
+
+@{
+    ViewData["Title"] = "Caluladora de Salario";
+}
+
+<h2 class="text-success">@ViewData["Title"]</h2>
+<form asp-action="Index" method="post">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <label for="carnet">Carnet</label>
+                <input class="form-control" type="number" min="0" step="0.01" max="100" name="Carnet" value="@Model.carnet" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="Salario">Salario</label>
+                <input class="form-control" type="number" min="0" step="0.01" max="100" name="Salario" value="@Model.Salario" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success" type="submit">Calcular Nota Final</button>
+            </div>
+        </div>
+        <div>
+        </div>
+</form>
+
+@if (ViewBag.SalFinal != null)
+{
+    <div>
+        <h3>El salario final es: @ViewBag.SalFinal</h3>
+    </div>
+}
+
+
+

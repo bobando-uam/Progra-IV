@@ -1,0 +1,69 @@
+﻿@* @{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+ *@
+
+@model Calculadora_D_202020051140.Models.CalculatorControlViewModel
+
+@{
+    ViewData["Title"] = "Caluladora de Salario";
+}
+
+<h2 class="text-success">@ViewData["Title"]</h2>
+<form asp-action="Index" method="post">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <label asp-for="carnet">Carnet:</label>
+                <input asp-for="carnet" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="SalarioBruto">Salario sin deducciones:</label>
+                <input asp-for="SalarioBruto" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success" type="submit">Calcular Nota Final</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="SeguroCCSS">Deducciones CCSS:</label>
+                Deducciones CCSS: @Model.SeguroCCSS
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="IptoMH">Impuesto de Hacienda:</label>
+                Impuesto MH: @Model.IptoMH
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="TotalDeducciones">Total de deducciones</label>
+                Total de deducciones> @Model.TotalDeducciones
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="SalarioNeto">Salario Neto:</label>
+                SAlario Neto: @Model.SalarioNeto
+            </div>
+        </div>
+        
+        <div>
+        </div>
+</form>
+
+@if (ViewBag.SalFinal != null)
+{
+    <div>
+        <h3>El salario final es: @ViewBag.SalFinal</h3>
+    </div>
+}
